@@ -1,0 +1,141 @@
+.fluid-reveal {
+  height: 100vh;
+}
+
+.fluid-reveal__inner {
+  display: block;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.fluid-reveal__item {
+  align-content: center;
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+.fluid-reveal__item-media {
+  display: block;
+  max-height: 100vh;
+  margin-top: 0vh;
+  overflow: hidden;
+  top: 0;
+  width: 100%;
+  grid-column: 1;
+}
+
+.fluid-reveal__content {
+  align-content: center;
+  background: white;
+  display: grid;
+  grid-column: 2/span 1;
+  max-height: 100vh;
+  will-change: opacity, transform;
+  margin-top: 0vh;
+  place-items: center;
+  grid-column: 2;
+  padding: 2%;
+}
+
+
+.pin-spacer {
+  background: rgb(7, 30, 36);
+}
+
+.fluid-reveal__content {
+  background: rgb(4, 25, 26);
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+}
+
+section {
+  background-color: black;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+  display: grid;
+  place-items: center;
+}
+
+section p {
+  color: white;
+}
+
+.youtube-container {
+  overflow: hidden;
+  width: 100%;
+  /* Keep it the right aspect-ratio */
+  aspect-ratio: 16/9;
+  /* No clicking/hover effects 
+	pointer-events: none; */
+
+  iframe {
+    /* Extend it beyond the viewport... */
+    width: 600%;
+    height: 100%;
+    /* ...and bring it back again */
+    margin-left: -250%;
+  }
+}
+
+
+/* Media query for screens 780px and below */
+@media (max-width: 1080px) {
+  .fluid-reveal__item {
+    grid-template-columns: 1fr;
+    /* Single column */
+    grid-template-rows: 1fr 1fr;
+    /* Two rows */
+  }
+
+  .fluid-reveal__content {
+    grid-column: 1;
+    /* Adjusts the position in grid */
+    grid-row: 1;
+    /* Moves content to the second row */
+    background: rgba(255, 255, 255, 0);
+    padding: 10%;
+  }
+
+  .fluid-reveal__item-media {
+    grid-column: 1;
+    /* Adjusts the position in grid */
+    grid-row: 1;
+    /* Keeps media in the first row */
+  }
+}
+
+
+/* Media query for screens 780px and below */
+@media (max-width: 580px) {
+  .fluid-reveal__item {
+    grid-template-columns: 1fr;
+    /* Single column */
+    grid-template-rows: 1fr 1fr;
+    /* Two rows */
+  }
+
+  .fluid-reveal__content {
+    margin-top: 150%;
+    grid-column: 1;
+    /* Adjusts the position in grid */
+    grid-row: 1;
+    /* Moves content to the second row */
+    background: rgba(255, 255, 255, 0);
+  }
+
+  .fluid-reveal__item-media {
+    grid-column: 1;
+    /* Adjusts the position in grid */
+    grid-row: 1;
+    /* Keeps media in the first row */
+  }
+}
